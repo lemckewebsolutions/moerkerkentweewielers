@@ -1,0 +1,17 @@
+.navigation ul
+{
+	padding-left: 0;
+}
+
+.navigation .navigation-item
+{
+	border-left: 1px solid #000;
+	color: #fff;
+	display: block;
+	float: left;
+	font-size: 25px;
+	height: 60px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+}
