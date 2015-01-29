@@ -35,7 +35,7 @@ class WebSite_PageController extends Framework_Request_PageController
 		$cssFiles->push("navigation.css");
 
 		$jsFooterFiles->push("bootstrap.min.js");
-
+		$jsFooterFiles->push("navigation.js");
 		$jsHeaderFiles->push("jquery.js");
 		$jsHeaderFiles->push("googleAnalytics.js");
 	}

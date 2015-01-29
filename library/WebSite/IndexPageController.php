@@ -5,6 +5,8 @@ class WebSite_IndexPageController extends WebSite_PageController
 	protected function assignClientCodeFiles (Framework_Views_PageView $view)
 	{
 		parent::assignClientCodeFiles($view);
+
+		$view->getCssFiles()->push("salesOffer.css");
 	}
 
 	public function get()

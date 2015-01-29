@@ -5,8 +5,8 @@
 
 .navigation .navigation-item
 {
-	border-left: 1px solid #000;
 	color: #fff;
+	cursor: pointer;
 	display: block;
 	float: left;
 	font-size: 25px;
@@ -14,4 +14,9 @@
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: center;
+}
+
+.navigation .current
+{
+	text-decoration: underline;
 }

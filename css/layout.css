@@ -1,6 +1,7 @@
 body
 {
 	background-color: #d9d9d9;
+	font-family: 'Lato';
 }
 
 .container-fluid
@@ -32,6 +33,7 @@ body
 {
 	font-size: 50px;
 	font-weight: bold;
+	text-align: center;
 }
 
 .openingshours
@@ -82,13 +84,13 @@ body
 
 .brandbar li
 {
-	margin: 0 0 15px;
+	margin: 0 10px 15px;
 	text-align: center;
 }
 
 .imagegallery
 {
-	border: 1px solid black;
+
 }
 
 .imagegallery img

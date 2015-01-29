@@ -2,7 +2,7 @@
 	<div class="title col-md-6 col-md-offset-1">
 		<h1>Moerkerken Tweewielers</h1>
 	</div>
-	<div class="openingshours hidden-xs col-md-4">
+	<div class="openingshours hidden-xs hidden-sm col-md-4">
 		Vandaag geopend tot:
 		<span class="time">18:00</span>
 	</div>

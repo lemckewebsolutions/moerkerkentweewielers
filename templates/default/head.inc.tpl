@@ -16,7 +16,7 @@ foreach ($cssFiles as $cssFile)
 <?
 }
 ?>
-		<link href='//fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 <?
 foreach ($headerJsFiles as $headerJsFile)
 {
