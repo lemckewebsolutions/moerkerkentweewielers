@@ -14,7 +14,13 @@ echo $this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/he
 	<?=$this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "imagegallery.inc.tpl")?>
 	<div class="salesOffers col-md-12">
 		<h2>Aanbiedingen</h2>
-		<?=$this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "salesOffer.inc.tpl")?>
+<?
+foreach ($salesOfferViews as $salesOfferView)
+{
+	echo $this->includeView($salesOfferView);
+}
+?>
+		
 	</div>
 </div>
 <?

@@ -13,14 +13,14 @@ class WebSite_IndexPageController extends WebSite_PageController
 	{
 		$request = $this->getRequest();
 
-		$page = new WebSite_Page(
+		$page = new WebSite_IndexPage(
 				$this->getConfiguration(),
 				$this->getRequest()
 		);
 
 		$page->load();
 
-		$view = new WebSite_PageView(
+		$view = new WebSite_IndexPageView(
 				self::TEMPLATE_PATH . "index.tpl",
 				$page
 		);

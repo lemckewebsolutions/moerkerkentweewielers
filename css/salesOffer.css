@@ -90,6 +90,11 @@
 		height: 300px;
 	}
 
+	.salesOffer-image
+	{
+		text-align: center;
+	}
+
 	.salesOffer-image img
 	{
 		position: relative;
