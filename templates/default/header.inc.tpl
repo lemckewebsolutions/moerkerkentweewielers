@@ -3,8 +3,19 @@
 		<h1>Moerkerken Tweewielers</h1>
 	</div>
 	<div class="openingshours hidden-xs hidden-sm col-md-4">
+<?
+if ($openingsHours->getClosedToday() === true)
+{
+	echo "Wij zijn momenteel gesloten.";
+}
+else
+{
+?>
 		Vandaag geopend tot:
-		<span class="time">18:00</span>
+		<span class="time"><?=date("H:i", $openingsHours->getClosingTime())?></span>
+<?
+}
+?>
 	</div>
 </div>
 <div class="navigation col-xs-12 col-sm-12 col-md-12">
