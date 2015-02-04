@@ -8,6 +8,12 @@ class WebSite_Page extends Framework_Model_Model
 	private $configuration = null;
 
 	/**
+	 * The openings hours.
+	 * @var Store_VisitingHours
+	 */
+	private $openingsHours = null;
+
+	/**
 	 * The request object.
 	 * @var Framework_Http_Request
 	 */
@@ -36,13 +42,18 @@ class WebSite_Page extends Framework_Model_Model
 		$this->setTitle($title);
 	}
 
-	public function destroyFacebookSession()
-	{
-		$this->getFaceBook()->destroySession();
-	}
-
 	public function load()
 	{
+		$this->loadOpeningsHours();
+	}
+
+	private function loadOpeningsHours()
+	{
+		$retrieveOpeningsHoursCommand = new Store_RetrieveOpeningsHoursCommand(
+			$this->getDatabaseConnection()
+		);
+
+		$this->setOpeningsHours($retrieveOpeningsHoursCommand->execute());
 	}
 
 	/**
@@ -92,6 +103,24 @@ class WebSite_Page extends Framework_Model_Model
 	private function setConfiguration (Framework_Collection_Array $configuration)
 	{
 		$this->configuration = $configuration;
+	}
+
+	/**
+	 * Gets the visiting hours.
+	 * @return Store_VisitingHours
+	 */
+	public function getOpeningsHours ()
+	{
+		return $this->openingsHours;
+	}
+
+	/**
+	 * Sets the visiting hours.
+	 * @param Store_VisitingHours $openingsHours
+	 */
+	private function setOpeningsHours (Store_VisitingHours $openingsHours)
+	{
+		$this->openingsHours = $openingsHours;
 	}
 
 	/**
