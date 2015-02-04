@@ -70,6 +70,11 @@ class Framework_Views_View
 		return $output;
 	}
 
+	public function includeView(Framework_Views_View $view)
+	{
+		return $view->parse();
+	}
+
 	public function parse()
 	{
 		return $this->includeFile($this->getTemplatePath());
