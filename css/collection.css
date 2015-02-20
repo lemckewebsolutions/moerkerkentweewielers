@@ -1,0 +1,78 @@
+.content
+{
+	padding-top: 0;
+}
+
+.categories ul
+{
+	list-style: none;
+	padding-left: 0;
+}
+
+.filterOption
+{
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	padding: 0;
+	text-align: left;
+}
+
+.assortment-item
+{
+	margin-bottom: 20px;
+	padding: 0px;
+}
+
+.assortment-item-content
+{
+	background-color: #FFF;
+	padding: 5px 15px;
+}
+
+.assortment-item-image
+{
+	height: 175px;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.assortment-item-content img
+{
+	left: 50%;
+	margin: 0;
+	margin-right: -50%;
+	max-height:100%;
+	max-width:100%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+}
+
+.assortment-item-content h3
+{
+	font-size: 22px;
+	height: 40px;
+	margin: 0;
+}
+
+.assortment-item-specs
+{
+	display: inline-block;
+	font-size: 18px;
+	width: 49%;
+}
+
+.price
+{
+	color: #c4c4c4;
+	font-size: 30px;
+}
+
+@media (min-width: 768px)
+{
+	.assortment-item
+	{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}

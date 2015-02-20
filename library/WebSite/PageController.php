@@ -58,6 +58,25 @@ class WebSite_PageController extends Framework_Request_PageController
 		$this->configuration = $configuration;
 	}
 
+	/**
+	 * Gets the database connection.
+	 * @return mysqli
+	 */
+	protected function getDatabaseConnection()
+	{
+		$configuration = $this->getConfiguration();
+		$databaseConfiguration = $configuration->offsetGet("database");
+
+		$databaseConnection = new mysqli(
+			$databaseConfiguration->offsetGet("server"),
+			$databaseConfiguration->offsetGet("user"),
+			$databaseConfiguration->offsetGet("password"),
+			$databaseConfiguration->offsetGet("database")
+		);
+
+		return $databaseConnection;
+	}
+
 	protected function isAjaxRequest()
 	{
 		$isAjaxRequest = false;

@@ -153,7 +153,7 @@ class Framework_Http_QueryString
     {
         $value = $this->getValue($name, $index);
 
-        $int = Framework_Types_Integer::DEFAULT_VALUE;
+        $int = -1;
 
         // Depends on the output of getValue(), which doesn't use the framework defaults.
         if ($value !== "")

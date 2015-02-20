@@ -69,6 +69,14 @@ body
 	padding-top: 10px;
 }
 
+.titlebar
+{
+	background-color: #cfcfcf;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px;
+}
+
 .sidebar img
 {
 	max-width:100%;

@@ -36,7 +36,7 @@ class WebSite_Page extends Framework_Model_Model
 
 		if ($title === "")
 		{
-			$title = "LiveCarb";
+			$title = "Moerkerken Tweewielers";
 		}
 
 		$this->setTitle($title);

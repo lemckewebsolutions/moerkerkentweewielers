@@ -24,6 +24,16 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 				WebSite_UrlPatterns::INDEX,
 				"WebSite_IndexPageController"
 		);
+
+		$this->getUrlPatterns()->offsetSet(
+				WebSite_UrlPatterns::COLLECTION,
+				"WebSite_CollectionPageController"
+		);
+
+		$this->getUrlPatterns()->offsetSet(
+			WebSite_UrlPatterns::OCCASIONS,
+			"WebSite_OccasionsPageController"
+		);
 	}
 
 	public function processRequest()
