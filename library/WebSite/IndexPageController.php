@@ -7,6 +7,7 @@ class WebSite_IndexPageController extends WebSite_PageController
 		parent::assignClientCodeFiles($view);
 
 		$view->getCssFiles()->push("salesOffer.css");
+		$view->getCssFiles()->push("brandbar.css");
 	}
 
 	public function get()

@@ -83,22 +83,9 @@ body
 	max-height:100%;
 }
 
-.brandbar
+.logos
 {
-	background: rgba(46,46,46,0.5);
-	list-style-type: none;
-	padding: 10px 0 1px 0;
-}
-
-.brandbar li
-{
-	margin: 0 10px 15px;
-	text-align: center;
-}
-
-.imagegallery
-{
-
+	padding: 10px 0;
 }
 
 .imagegallery img
