@@ -4,7 +4,7 @@
 	</div>
 	<div class="openingshours hidden-xs hidden-sm col-md-4">
 <?
-if ($openingsHours->getClosedToday() === true)
+if ($openingsHours === null || $openingsHours->getClosedToday() === true)
 {
 	echo "Wij zijn momenteel gesloten.";
 }

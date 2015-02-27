@@ -9,7 +9,7 @@ class WebSite_Page extends Framework_Model_Model
 
 	/**
 	 * The openings hours.
-	 * @var Store_VisitingHours
+	 * @var Framework_Collection_Array|Store_VisitingHours[]
 	 */
 	private $openingsHours = null;
 
@@ -107,7 +107,7 @@ class WebSite_Page extends Framework_Model_Model
 
 	/**
 	 * Gets the visiting hours.
-	 * @return Store_VisitingHours
+	 * @return Framework_Collection_Array|Store_VisitingHours[]
 	 */
 	public function getOpeningsHours ()
 	{
@@ -116,9 +116,9 @@ class WebSite_Page extends Framework_Model_Model
 
 	/**
 	 * Sets the visiting hours.
-	 * @param Store_VisitingHours $openingsHours
+	 * @param Framework_Collection_Array|Store_VisitingHours[] $openingsHours
 	 */
-	private function setOpeningsHours (Store_VisitingHours $openingsHours)
+	private function setOpeningsHours (Framework_Collection_Array $openingsHours)
 	{
 		$this->openingsHours = $openingsHours;
 	}

@@ -4,36 +4,33 @@ class Store_RetrieveOpeningsHoursCommand extends Framework_Database_Command
 	public function execute()
 	{
 		$connection = $this->getDatabaseConnection();
-		$openingsHours = new Store_VisitingHours();
+		$openingsHours = new Framework_Collection_Array();
 
 		$result = $connection->query("
 			select
+			  ou.openingsurenid,
 			  ou.gesloten,
 			  ou.openingstijd,
 			  ou.sluitingstijd
 			from
-			  openingsuren ou
-			where
-			  ou.openingsurenid = " . date('w', time()));
+			  openingsuren ou");
 
-		$record = $result->fetch_object();
-
-		if ($record !== null)
+		while ($record = $result->fetch_object())
 		{
+			$openingsHour = new Store_VisitingHours();
+
 			if ($record->gesloten == 'Y' ||
 				strtotime($record->sluitingstijd) < time())
 			{
-				$openingsHours->setClosedToday(true);
+				$openingsHour->setClosedToday(true);
 			}
 			else
 			{
-				$openingsHours->setOpeningsTime(strtotime($record->openingstijd));
-				$openingsHours->setClosingTime(strtotime($record->sluitingstijd));
+				$openingsHour->setOpeningsTime(strtotime($record->openingstijd));
+				$openingsHour->setClosingTime(strtotime($record->sluitingstijd));
 			}
-		}
-		else
-		{
-			$openingsHours->setClosedToday(true);
+
+			$openingsHours->offsetSet($record->openingsurenid, $openingsHour);
 		}
 
 		return $openingsHours;
