@@ -1,5 +1,5 @@
 <div class="header col-xs-12 col-sm-12 col-md-12">
-	<div class="title col-md-6 col-md-offset-1">
+	<div class="title col-md-7">
 		<h1>Moerkerken Tweewielers</h1>
 	</div>
 	<div class="openingshours hidden-xs hidden-sm col-md-4">

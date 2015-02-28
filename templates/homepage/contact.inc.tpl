@@ -9,6 +9,7 @@
 		Churchillplein 10<br>
 		2983 EB Ridderkerk<br>
 		Tel: <a href="tel:0180415415">(0180) 41 54 15</a>
+		<a href="mail:info@moerkerkentweewielers.com" title="Email ons">Email ons</a>
 	</address>
 </div>
 <div class="openingshour col-xs-6 col-sm-6 col-md-12 col-lg-12">

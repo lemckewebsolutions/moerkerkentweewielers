@@ -34,6 +34,11 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 			WebSite_UrlPatterns::OCCASIONS,
 			"WebSite_OccasionsPageController"
 		);
+
+		$this->getUrlPatterns()->offsetSet(
+			WebSite_UrlPatterns::CONTACT,
+			"WebSite_ContactPageController"
+		);
 	}
 
 	public function processRequest()

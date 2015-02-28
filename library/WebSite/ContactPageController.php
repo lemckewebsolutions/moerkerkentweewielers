@@ -1,27 +1,26 @@
 <?php
-class WebSite_IndexPageController extends WebSite_PageController
+class WebSite_ContactPageController extends WebSite_PageController
 	implements Framework_Http_IGet
 {
 	protected function assignClientCodeFiles (Framework_Views_PageView $view)
 	{
 		parent::assignClientCodeFiles($view);
 
-		$view->getCssFiles()->push("salesOffer.css");
 		$view->getCssFiles()->push("brandbar.css");
 	}
 
 	public function get()
 	{
-		$page = new WebSite_IndexPage(
-				$this->getConfiguration(),
-				$this->getRequest()
+		$page = new WebSite_Page(
+			$this->getConfiguration(),
+			$this->getRequest()
 		);
 
 		$page->load();
 
-		$view = new WebSite_IndexPageView(
-				self::TEMPLATE_PATH . "index.tpl",
-				$page
+		$view = new WebSite_Views_ContactPageView(
+			self::TEMPLATE_PATH . "contact.tpl",
+			$page
 		);
 
 		$this->assignClientCodeFiles($view);
