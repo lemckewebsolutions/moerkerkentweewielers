@@ -17,6 +17,6 @@ if ($isChecked === true)
 <li class="filterOption col-lg-12">
 	<label title="Toon <?=$name?>">
 		<input type="checkbox" name="<?=$filterName?>[<?=$value?>]" value="<?=$value?>" <?=$checked?> onChange="this.form.submit()">
-		<?=$name?> (<?=$resultCount?>)
+		<?=$name?>
 	</label>
 </li>
