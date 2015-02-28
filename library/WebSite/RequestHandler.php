@@ -36,6 +36,11 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 		);
 
 		$this->getUrlPatterns()->offsetSet(
+			WebSite_UrlPatterns::INSURANCE,
+			"WebSite_InsurancePageController"
+		);
+
+		$this->getUrlPatterns()->offsetSet(
 			WebSite_UrlPatterns::CONTACT,
 			"WebSite_ContactPageController"
 		);

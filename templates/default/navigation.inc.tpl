@@ -13,10 +13,10 @@
 			<a href="/occasions" title="Occasions">Occasions</a>
 		</li>
 		<li class="navigation-item col-xs-12 col-sm-2 col-md-2 hidden-xs">
-			<a href="/accessoires" title="Accessoires">Accessoires</a>
+			<a href="/service" title="Service">Service</a>
 		</li>
 		<li class="navigation-item col-xs-12 col-sm-2 col-md-2 hidden-xs">
-			<a href="/service" title="Service">Service</a>
+			<a href="/verzekering" title="Verzekering">Verzekering</a>
 		</li>
 		<li class="navigation-item col-xs-12 col-sm-2 col-md-2 hidden-xs">
 			<a href="/contact" title="Contact">Contact</a>
