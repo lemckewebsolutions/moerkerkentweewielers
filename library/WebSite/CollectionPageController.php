@@ -13,8 +13,8 @@ class WebSite_CollectionPageController extends WebSite_PageController
 	public function get()
 	{
 		$page = new WebSite_CollectionPage(
-				$this->getConfiguration(),
-				$this->getRequest()
+			$this->getConfiguration(),
+			$this->getRequest()
 		);
 
 		$page->load();

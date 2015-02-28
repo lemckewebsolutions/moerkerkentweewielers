@@ -9,6 +9,7 @@ class Store_RetrieveOpeningsHoursCommand extends Framework_Database_Command
 		$result = $connection->query("
 			select
 			  ou.openingsurenid,
+			  ou.dag,
 			  ou.gesloten,
 			  ou.openingstijd,
 			  ou.sluitingstijd
@@ -18,9 +19,9 @@ class Store_RetrieveOpeningsHoursCommand extends Framework_Database_Command
 		while ($record = $result->fetch_object())
 		{
 			$openingsHour = new Store_VisitingHours();
+			$openingsHour->setDay($record->dag);
 
-			if ($record->gesloten == 'Y' ||
-				strtotime($record->sluitingstijd) < time())
+			if ($record->gesloten == 'Y')
 			{
 				$openingsHour->setClosedToday(true);
 			}

@@ -6,7 +6,7 @@
 <?
 if ($openingsHours === null || $openingsHours->getClosedToday() === true)
 {
-	echo "Wij zijn momenteel gesloten.";
+	echo "Wij zijn momenteel gesloten";
 }
 else
 {
