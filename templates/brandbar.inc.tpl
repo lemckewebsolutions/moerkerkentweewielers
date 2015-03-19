@@ -11,4 +11,7 @@
 	<li>
 		<a href="http://www.cortinafietsen.nl/" target="_blank"><img src="images/logos/cortina.png" width="150px" alt="Cortina"/></a>
 	</li>
+	<li>
+		<a href="http://www.vvvcadeaubon.nl/" target="_blank"><img src="images/logos/vvv.png" width="150px" alt="Cortina"/></a>
+	</li>
 </ul>
