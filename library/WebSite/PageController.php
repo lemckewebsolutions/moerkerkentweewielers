@@ -90,6 +90,18 @@ class WebSite_PageController extends Framework_Request_PageController
 		return $isAjaxRequest;
 	}
 
+	protected function getUrlParameterValue($index)
+	{
+		$segments = $this->getRequest()->getRequestUrl()->getSegments();
+
+		if ($segments->offsetExists($index) === true)
+		{
+			return $segments->offsetGet($index);
+		}
+
+		return null;
+	}
+
 	/**
 	 * Gets the request object.
 	 * @return Framework_Http_Request

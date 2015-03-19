@@ -12,7 +12,7 @@
 foreach ($cssFiles as $cssFile)
 {
 ?>
-		<link rel="stylesheet" type="text/css" href="css/<?=$cssFile?>">
+		<link rel="stylesheet" type="text/css" href="http://new.moerkerkentweewielers.nl/css/<?=$cssFile?>">
 <?
 }
 ?>

@@ -45,6 +45,12 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 			"WebSite_ContactPageController"
 		);
 
+		$this->getUrlPatterns()->offsetSet(
+			WebSite_UrlPatterns::BIKE,
+			"WebSite_BikePageController"
+		);
+	}
+
 	private function findMatchingPattern($requestPattern)
 	{
 		$urlPatterns = $this->getUrlPatterns()->getKeys();
