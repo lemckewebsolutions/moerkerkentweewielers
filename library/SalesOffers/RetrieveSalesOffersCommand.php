@@ -15,7 +15,6 @@ class SalesOffers_RetrieveSalesOffersCommand extends Framework_Database_Command
 			from
 			  aanbiedingen a
 			order by
-			  a.cat desc,
 			  a.pos asc
 		");
 
