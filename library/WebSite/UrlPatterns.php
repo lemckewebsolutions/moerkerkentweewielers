@@ -5,4 +5,5 @@ abstract class WebSite_UrlPatterns
 	const CONTACT = "/contact";
 	const INDEX = "/";
 	const OCCASIONS = "/occasions";
+	const SERVICE = "/service";
 }
