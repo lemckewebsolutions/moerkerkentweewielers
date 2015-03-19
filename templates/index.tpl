@@ -17,7 +17,7 @@ echo $this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/he
 </div>
 <div class="col-sm-12 col-md-8">
 	<?=$this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "imagegallery.inc.tpl")?>
-	<div class="salesOffers col-md-12">
+	<div id="aanbiedingen" class="salesOffers col-md-12">
 		<h2>Aanbiedingen</h2>
 <?
 foreach ($salesOfferViews as $salesOfferView)
