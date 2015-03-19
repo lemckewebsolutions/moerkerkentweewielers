@@ -44,6 +44,56 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 			WebSite_UrlPatterns::CONTACT,
 			"WebSite_ContactPageController"
 		);
+
+	private function findMatchingPattern($requestPattern)
+	{
+		$urlPatterns = $this->getUrlPatterns()->getKeys();
+		$requestSegments = explode("/", $requestPattern);
+
+		foreach ($urlPatterns as $urlPattern)
+		{
+			$urlSegments = explode("/", $urlPattern);
+
+			$requiredSegmentCount = count($urlSegments);
+
+			foreach ($urlSegments as $segment)
+			{
+				if ($segment === "%")
+				{
+					$requiredSegmentCount--;
+				}
+			}
+
+			if (count($requestSegments) < $requiredSegmentCount)
+			{
+				continue;
+			}
+
+			reset($urlSegments);
+			$matchedSegments = 0;
+			foreach ($urlSegments as $index => $segment)
+			{
+				if (strtolower($requestSegments[$index]) === strtolower($segment))
+				{
+					$matchedSegments++;
+
+					if ($matchedSegments === $requiredSegmentCount)
+					{
+						return $urlPattern;
+					}
+				}
+				elseif (preg_match("/\\{[a-z]+\\}/i", $segment) == true &&
+					(int)$requestSegments[$index] > 0)
+				{
+					$matchedSegments++;
+
+					if ($matchedSegments === $requiredSegmentCount)
+					{
+						return $urlPattern;
+					}
+				}
+			}
+		}
 	}
 
 	public function processRequest()
@@ -65,7 +115,9 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 				$postedFields
 		);
 
-		$controllerName = $urlPatterns->offsetGet($requestUrl->getPath());
+		$controllerName = $urlPatterns->offsetGet(
+			$this->findMatchingPattern($requestUrl->getPath())
+		);
 		$controller = new $controllerName($request, $this->getConfiguration());
 
 		echo parent::executeRequest($controller);
