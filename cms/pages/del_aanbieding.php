@@ -33,7 +33,6 @@ while($result = mysql_fetch_object($queryResult))
 }
 $delete = $db->execute($delQuery);
 //DELETE FOTO
-//fclose("../images/uploads/".$fotoURL);
 unlink("../images/uploads/".$fotoURL);
 
 echo'<script type="text/javascript"> window.location = "../index.php?page=aanbiedingen"</script>';
