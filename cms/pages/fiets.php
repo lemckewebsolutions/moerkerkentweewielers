@@ -1,4 +1,4 @@
-<?
+<?php
 if($_SESSION['ingelogd'] != true)
 {
     header('Location: login/index.php');
@@ -9,12 +9,12 @@ if($_SESSION['ingelogd'] != true)
             <img width="300px" src="http://moerkerkentweewielers.nl/images/uploads/<?=$record->uploadname?>">
         </td>
     </tr>
-<?
+<?php
 	if($record->merk!=""){echo'<tr><td>Merk</td><td>' . $record->merk . '</td></tr>';}
 	if($record->model!=""){echo'<tr><td>Model</td><td>' . $record->model . '</td></tr>';}
 	if($record->adviesprijs!=""){echo'<tr><td>Adviesverkoopprijs</td><td>&euro;' . $record->adviesprijs . '</td></tr>';}
-        if($record->verkoopprijs!=""){echo'<tr><td>Verkoopprijs</td><td>&euro;' . $record->verkoopprijs . '</td></tr>';}
-        if($record->beschrijving!=""){echo'<tr><td>Beschrijving</td><td>' . $record->beschrijving . '</td></tr>';}
+    if($record->verkoopprijs!=""){echo'<tr><td>Verkoopprijs</td><td>&euro;' . $record->verkoopprijs . '</td></tr>';}
+    if($record->beschrijving!=""){echo'<tr><td>Beschrijving</td><td>' . $record->beschrijving . '</td></tr>';}
 	if($record->categorie!=""){echo'<tr><td>Categorie</td><td>' . $record->categorie . '</td></tr>';}
 	if($record->frame!=""){echo'<tr><td>Frame</td><td>' . $record->frame . '</td></tr>';}
 	if($record->framemaat!=0){echo'<tr><td>Framehoogte</td><td>' . $record->framemaat . ' '.$record->eenheid.'</td></tr>';}
@@ -31,4 +31,3 @@ if($_SESSION['ingelogd'] != true)
 	if($record->status!=""){echo'<tr><td>Status</td><td>' . $record->status . '</td></tr>';}
 ?>
     </table>
-?>

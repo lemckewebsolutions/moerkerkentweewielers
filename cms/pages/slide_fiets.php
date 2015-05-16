@@ -44,7 +44,7 @@ while($record = mysql_fetch_object($getSlide3)){
 <html>
 <body>
 <form method="POST" action="?page=slide_fiets&actie=change">
-<?
+<?php
     while($record = mysql_fetch_object($getSlide))
     {
         $currentFietsID;
@@ -52,7 +52,7 @@ while($record = mysql_fetch_object($getSlide3)){
 ?>
         <p>Slide <?=$record->slideID?>:
             <select name="slide<?=$record->slideID?>">
-<?
+<?php
                 $query = "Select * from fietsen f order by f.merk, f.model";
                 $getFietsen = $db->execute($query);
                 while($result = mysql_fetch_object($getFietsen))
@@ -61,23 +61,20 @@ while($record = mysql_fetch_object($getSlide3)){
                    {
 ?>
 			<option value="<?=$result->ID?>" selected ><b><?=$result->merk . ' / ' . $result->model?></b></option>
-<?
+<?php
                     }
                     else
                     {
 ?>
 			<option value="<?=$result->ID?>"><?=$result->merk . ' / ' . $result->model?></option>
-<?
+<?php
                     }
                 }
 ?>
             </select>
 
-<?
-        
-
-
-    }
+<?php
+	}
 ?>
 <input type="submit" name="change" value="Verander"></p>
 </form>

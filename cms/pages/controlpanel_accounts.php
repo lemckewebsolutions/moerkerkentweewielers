@@ -52,7 +52,7 @@ while($record = mysql_fetch_object($users)){
                 <tr><td>emailadres: </td><td><?=$record->email?></td></tr>
                 <tr><td>rol: </td><td><?=$record->rightsname?></td></tr>
 	</table>
-<?
+<?php
 	if($_SESSION['user_id']==$record->id)
 	{
 		echo '<b>U bent momenteel ingelogd met dit account. Deze kunt u niet verwijderen.</b>';
@@ -63,7 +63,7 @@ while($record = mysql_fetch_object($users)){
 	    <form method="POST" action="?page=<?=$_GET['page']?>&actie=delete_account&id=<?=$record->id?>">
                 <button type="submit" class="btn btn-danger" onClick="return confirm('Weet u zeker dat u deze gebruiker wilt verwijderen?')">Verwijder account</button>
 	    </form>
-<?
+<?php
 	}
     echo'<hr>';
 }
