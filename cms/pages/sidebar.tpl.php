@@ -1,4 +1,4 @@
-<?
+<?php
 if($_SESSION['ingelogd'] != true)
 {
     header('Location: login/index.php');
@@ -8,7 +8,7 @@ if($_SESSION['ingelogd'] != true)
 <div class="span3">
     <div class="well sidebar-nav">
         <ul class="nav nav-list">
-<?
+<?php
     $catQuery = $db->execute("  Select *
                     from admin_category
                     where rights <= ".$_SESSION['rights']."
@@ -27,7 +27,7 @@ if($_SESSION['ingelogd'] != true)
       {
 ?>
             <li class="nav-header"><?=$category->category?></li>
-<?
+<?php
             while($pageResult = mysql_fetch_object($pageQuery))
             {
                 $extra = "";
@@ -41,13 +41,13 @@ if($_SESSION['ingelogd'] != true)
                 {
 ?>
                     <li class="<?=$class?>"><a href="?<?=$pageResult->shortname?>&page=<?=$pageResult->file?><?=$extra?>" title="<?=$pageResult->name?>"><?=$pageResult->name?></a></li>
-<?
+<?php
                 }
                 else
                 {
 ?>
                     <li class="<?=$class?>"><a href="?<?=$pageResult->shortname?>&pageid=<?=$pageResult->pageid?><?=$extra?>" title="<?=$pageResult->name?>"><?=$pageResult->name?></a></li>
-<?
+<?php
                 }
             }
       }

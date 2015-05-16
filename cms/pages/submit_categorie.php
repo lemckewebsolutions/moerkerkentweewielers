@@ -1,4 +1,4 @@
-<?
+<?php
 if($_SESSION['ingelogd'] != true)
 {
     header('Location: login/index.php');

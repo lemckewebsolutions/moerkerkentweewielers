@@ -1,4 +1,4 @@
-<?
+<?php
 if (!isset ($_COOKIE[ini_get('session.name')]))
 {
     session_start();
@@ -7,8 +7,6 @@ if (!isset ($_COOKIE[ini_get('session.name')]))
 if(!$_SESSION['ingelogd']){
 header('Location: login.php?url=index.php');
 }
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
 
 global $_FILES;
 
@@ -119,7 +117,7 @@ if ($extentie_check == "True")
         alert("<?=$merk?> <?=$model?> is toegevoegd");
         window.location = "index.php?fietsoverzicht&page=fietsen&s=<?=$soortid?>"
     </script>
-<?
+<?php
     }
 }
 else
@@ -129,7 +127,7 @@ else
         alert("Er is iets fout gegaan.");
         window.location = "index.php?addFiets&page=insert_bike&s=<?=$soortid?>"
     </script>
-<?
+<?php
 }
 include_once("fietsen.php");
 ?>

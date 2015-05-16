@@ -1,4 +1,4 @@
-<?
+<?php
 if($_SESSION['ingelogd'] != true)
 {
     header('Location: login/index.php');
@@ -19,7 +19,7 @@ if($_SESSION['ingelogd'] != true)
 
 <div class="well">
     <form method="POST" action="pages/submit_openinghours.php">
-<?
+<?php
     while($day = mysql_fetch_object($days))
     {
 ?>
@@ -52,7 +52,7 @@ if($_SESSION['ingelogd'] != true)
 		</td>
 	    </tr>
 	</table>
-<?
+<?php
     }
 ?>
 	<input type="submit" value="Opslaan" class="btn btn-primary">

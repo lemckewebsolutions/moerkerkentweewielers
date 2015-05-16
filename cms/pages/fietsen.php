@@ -9,9 +9,6 @@ if(!$_SESSION['ingelogd'])
     header('Location: login.php?url=index.php');
 }
 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
-
 $actie;
 if(isset($_GET['actie']))
 {
@@ -86,13 +83,13 @@ if ($actie=="fiets")
 	$zoek = $db->execute($zoekquery);
 ?>
         <b><a href="index.php?page=fietsen&s=<?=$soortid?>&actie=">terug</a></b>
-<?
+<?php
 	while($record = mysql_fetch_object($zoek)){
 		include 'fiets.php';
 	}
 ?>
         <b><a href="index.php?page=fietsen&s=<?=$soortid?>&actie=">terug</a></b>
-<?
+<?php
 } elseif ($actie=="del_fiets"){
 	$del = $_GET['del'];
 	$ID = $_GET['ID'];
@@ -121,7 +118,7 @@ if ($actie=="fiets")
 			window.location = "index.php?page=fietsen&s=<?=$soortid?>"
 		}
 	</script>
-<?
+<?php
 	}
 } elseif ($actie=="edit_fiets"){
 	$ID = $_GET['ID'];
@@ -130,14 +127,14 @@ if ($actie=="fiets")
 	$zoek = $db->execute($zoekquery);
 ?>
         <b><a href="index.php?page=fietsen&s=<?=$soortid?>&actie=">terug</a></b>
-<?
+<?php
 	$fiets = "n";
 	while($record = mysql_fetch_object($zoek)){
 		include 'edit_fiets.php';
 	}
 ?>
         <b><a href="index.php?page=fietsen&s=<?=$soortid?>&actie=">terug</a></b>
-<?
+<?php
 } else {
 	$zoekquery = '	Select
 			    f.ID,
@@ -192,7 +189,7 @@ if ($actie=="fiets")
                     </tr>
                     </thead>
                     <tbody>
-<?
+<?php
 		while($record = mysql_fetch_object($zoek))
                 {
 ?>
@@ -204,7 +201,7 @@ if ($actie=="fiets")
                         <td><?=$record->status?></td>
                         <td><?=$record->views?></td>
                         <td>
-<?
+<?php
                             if($record->uploadname!=""){ echo'Ja'; } else { echo'Nee'; }
 ?>
                         </td>
@@ -213,12 +210,12 @@ if ($actie=="fiets")
                             <a href="index.php?page=fietsen&s=<?=$soortid?>&actie=edit_fiets&ID=<?=$record->ID?>"><img src="../images/edit.png" alt="Aanpassen" width="25px"/></a>
                         </td>
                     </tr>
-<?
+<?php
                 }
 ?>
                     </tbody>
                 </table>
-<?
+<?php
 
                 }
 ?>

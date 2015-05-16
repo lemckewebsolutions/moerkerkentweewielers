@@ -1,4 +1,4 @@
-<?
+<?php
 if($_SESSION['ingelogd'] != true)
 {
     header('Location: login/index.php');
@@ -26,7 +26,7 @@ if($_SESSION['ingelogd'] != true)
             <script language="javascript">
                 window.location="index.php?page=aanbiedingen";
             </script>
-<?
+<?php
         }
         else
         {
@@ -57,7 +57,7 @@ if($_SESSION['ingelogd'] != true)
             <script language="javascript">
                 window.location="index.php?page=aanbiedingen";
             </script>
-<?
+<?php
         }
         else
         {
@@ -110,6 +110,6 @@ if($_SESSION['ingelogd'] != true)
                                     <?=($record->pos < $count)?"<a href=\"index.php?page=aanbiedingen&action=down&id=".$record->ID."\"><img src=\"../images/arrow_down.png\" alt=\"Omlaag verplaatsen\" width=\"25px\"/></a>":""?>
 				</td>
 			</tr>
-<?	 }
+<?php	 }
 ?>
 </table>

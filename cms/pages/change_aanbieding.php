@@ -1,4 +1,4 @@
-<?
+<?php
 if($_SESSION['ingelogd'] != true)
 {
     header('Location: login/index.php');
@@ -34,4 +34,4 @@ while($record = mysql_fetch_object($query)){ ?>
             <tr><td colspan="2" align="right"><input type="submit" value="Pas aan" /></td></tr>
     </table>
     </form>
-<? } ?>
+<?php } ?>
