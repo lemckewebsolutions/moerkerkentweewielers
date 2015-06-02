@@ -1,5 +1,5 @@
 <?php
-class WebSite_OccasionsPageController extends WebSite_PageController
+class WebSite_OccasionsPageController extends WebSite_CollectionPageController
 	implements Framework_Http_IGet
 {
 	protected function assignClientCodeFiles(Framework_Views_PageView $view)
@@ -36,7 +36,8 @@ class WebSite_OccasionsPageController extends WebSite_PageController
 			self::TEMPLATE_PATH . "collection.tpl",
 			$page,
 			$page->getCategories(),
-			$bikeCollection
+			$bikeCollection,
+			$this->getBikesToShow($bikeCollection)
 		);
 
 		$this->assignClientCodeFiles($view);

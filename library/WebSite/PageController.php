@@ -1,7 +1,7 @@
 <?php
 class WebSite_PageController extends Framework_Request_PageController
 {
-	const TEMPLATE_PATH = "templates/";
+	const TEMPLATE_PATH = "templates_new/";
 
 	/**
 	 * The configuration array.

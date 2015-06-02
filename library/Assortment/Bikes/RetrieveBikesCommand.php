@@ -1,15 +1,12 @@
 <?php
 class Assortment_Bikes_RetrieveBikesCommand extends Framework_Database_Command
 {
-	private $categoryIds = null;
-
 	private $typeId = -1;
 
-	public function __construct(mysqli $databaseConnection, Framework_Collection_Stack $categoryIds, $typeId)
+	public function __construct(mysqli $databaseConnection, $typeId)
 	{
 		parent::__construct($databaseConnection);
 
-		$this->setCategoryIds($categoryIds);
 		$this->setTypeId($typeId);
 	}
 
@@ -17,13 +14,6 @@ class Assortment_Bikes_RetrieveBikesCommand extends Framework_Database_Command
 	{
 		$connection = $this->getDatabaseConnection();
 		$bikes = new Framework_Collection_Array();
-
-		$categoriesWhereClause = "";
-
-		if ($this->getCategoryIds()->getLength() > 0)
-		{
-			$categoriesWhereClause = " and f.categorieid in (" . $this->getCategoryIds()->join(",") . ")";
-		}
 
 		$result = $connection->query("
 			select
@@ -37,6 +27,11 @@ class Assortment_Bikes_RetrieveBikesCommand extends Framework_Database_Command
 			  fm.framemaat,
 			  fm.eenheid,
 			  wm.wielmaat,
+			  f.versnellingen,
+			  f.gewicht,
+			  f.kleur,
+			  f.modeljaar,
+			  f.extra,
 			  f.verkoopprijs,
 			  f.beschrijving,
 			  f.uploadname
@@ -49,12 +44,12 @@ class Assortment_Bikes_RetrieveBikesCommand extends Framework_Database_Command
 			WHERE
 			  f.status = 'Beschikbaar' and
 			  f.soortid = " . $this->getTypeId() . "
-			  " . $categoriesWhereClause . "
 			group by
 			  f.merk,
 			  f.model,
 			  f.wielmaatid
 			order by
+			  wm.wielmaat,
 			  f.merk,
 			  f.model
 		");
@@ -66,6 +61,11 @@ class Assortment_Bikes_RetrieveBikesCommand extends Framework_Database_Command
 			$bike->setBrand($record->merk);
 			$bike->setModel($record->model);
 			$bike->setWheelSize($record->wielmaat);
+			$bike->setGears($record->versnellingen);
+			$bike->setBuildYear($record->modeljaar);
+			$bike->setColor($record->kleur);
+			$bike->setWeight($record->gewicht);
+			$bike->setExtras($record->extra);
 			$bike->setDescription($record->beschrijving);
 			$bike->setSalesPrice($record->verkoopprijs);
 			$bike->setImageName($record->uploadname);
@@ -89,26 +89,17 @@ class Assortment_Bikes_RetrieveBikesCommand extends Framework_Database_Command
 			);
 			$bike->setFrameSize($frameSize);
 
+			$retrieveSpecificationsCommand = new Assortment_Bikes_RetrieveSpecificationsForBikeCommand(
+				$connection,
+				$bike->getBikeId()
+			);
+
+			$bike->setSpecifications($retrieveSpecificationsCommand->execute());
+
 			$bikes->offsetSet($bike->getBikeId(), $bike);
 		}
 
 		return $bikes;
-	}
-
-	/**
-	 * @return Framework_Collection_Stack
-	 */
-	private function getCategoryIds()
-	{
-		return $this->categoryIds;
-	}
-
-	/**
-	 * @param Framework_Collection_Stack $categoryId
-	 */
-	private function setCategoryIds(Framework_Collection_Stack $categoryId)
-	{
-		$this->categoryIds = $categoryId;
 	}
 
 	/**

@@ -6,10 +6,9 @@
 
 .salesOffers h2
 {
-	background-color: #cfcfcf;
 	font-weight: bold;
 	text-transform: uppercase;
-	padding: 10px;
+	padding: 0 5px;
 }
 
 .salesOffer

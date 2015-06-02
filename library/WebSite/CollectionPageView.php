@@ -3,46 +3,23 @@ class WebSite_CollectionPageView extends WebSite_PageView
 {
 	private $bikeCollection = null;
 
+	/* @var Framework_Collection_Array|Assortment_Bikes_Bike[] $bikesToShow */
+	private $bikesToShow = null;
+
 	private $categories = null;
 
 	public function __construct(
 		$templatePath,
 		Framework_Model_Model $page,
 		Framework_Collection_Array $categories,
-		Assortment_Collection $bikeCollection
+		Assortment_Collection $bikeCollection,
+		Framework_Collection_Array $bikesToShow
 	)
 	{
 		parent::__construct($templatePath, $page);
 
-		$this->setCategories($categories);
 		$this->setBikeCollection($bikeCollection);
-	}
-
-	private function createCategoryFilterOptionViews()
-	{
-		$filterOptions = new Framework_Collection_Stack();
-		$categories = $this->getCategories();
-
-		foreach ($categories as $categoryId => $category)
-		{
-			$view = new WebSite_Views_FilterOptionView(
-				"categoryid",
-				$category,
-				$categoryId,
-				$this->getBikeCollection()->getBikeCountForCategory($category)
-			);
-
-			if (array_key_exists("categoryid", $_GET) === true &&
-				is_array($_GET["categoryid"]) === true &&
-				in_array($categoryId, $_GET["categoryid"]) === true)
-			{
-				$view->setChecked(true);
-			}
-
-			$filterOptions->push($view);
-		}
-
-		return $filterOptions;
+		$this->bikesToShow = $bikesToShow;
 	}
 
 	/**
@@ -51,8 +28,19 @@ class WebSite_CollectionPageView extends WebSite_PageView
 	private function createFilters()
 	{
 		$filters = new Framework_Collection_Array();
+		$specifications = $this->getSpecifications();
 
-		$filters->offsetSet("Categorieen", $this->createCategoryFilterOptionViews());
+		foreach ($specifications as $specificationId => $specification)
+		{
+			$view = new WebSite_Views_FilterView(
+				WebSite_PageController::TEMPLATE_PATH . "assortment/filter.inc.tpl",
+				$this->getBikeCollection()->getBikes(),
+				$specification
+			);
+
+			$filters->offsetSet($specificationId, $view->parse());
+		}
+
 
 		return $filters;
 	}
@@ -60,7 +48,7 @@ class WebSite_CollectionPageView extends WebSite_PageView
 	public function parse()
 	{
 		$assortmentView = new WebSite_Views_AssortmentView(
-			$this->getBikeCollection()->getBikes()
+			$this->bikesToShow
 		);
 
 		$this->assignVariable("filters", $this->createFilters());
@@ -88,16 +76,21 @@ class WebSite_CollectionPageView extends WebSite_PageView
 	/**
 	 * @return Framework_Collection_Array
 	 */
-	private function getCategories()
+	private function getSpecifications()
 	{
-		return $this->categories;
-	}
+		$categories = new Framework_Collection_Array();
 
-	/**
-	 * @param Framework_Collection_Array $value
-	 */
-	private function setCategories (Framework_Collection_Array $value)
-	{
-		$this->categories = $value;
+		foreach ($this->getBikeCollection()->getBikes() as $bike)
+		{
+			foreach ($bike->getSpecifications() as $specificationId => $specification)
+			{
+				if ($categories->offsetExists($specificationId) === false)
+				{
+					$categories->offsetSet($specificationId, $specification);
+				}
+			}
+		}
+
+		return $categories;
 	}
 }

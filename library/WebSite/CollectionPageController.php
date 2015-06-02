@@ -19,28 +19,71 @@ class WebSite_CollectionPageController extends WebSite_PageController
 
 		$page->load();
 
-		$categoryIds = new Framework_Collection_Stack();
-
-		if (array_key_exists("categoryid", $_GET) === true)
-		{
-			$categoryIds = new Framework_Collection_Stack(array_keys($_GET["categoryid"]));
-		}
-
 		$bikeCollection = Assortment_Bikes_Loader::loadBikeCollection(
 			$this->getDatabaseConnection(),
-			Assortment_Bikes_Types::NEW_BIKES,
-			$categoryIds
+			Assortment_Bikes_Types::NEW_BIKES
 		);
 
 		$view = new WebSite_CollectionPageView(
 			self::TEMPLATE_PATH . "collection.tpl",
 			$page,
 			$page->getCategories(),
-			$bikeCollection
+			$bikeCollection,
+			$this->getBikesToShow($bikeCollection)
 		);
 
 		$this->assignClientCodeFiles($view);
 
 		return $view->parse();
+	}
+
+	/**
+	 * @param Assortment_Collection $bikeCollection
+	 * @return Framework_Collection_Array|Assortment_Bikes_Bike[]
+	 */
+	protected function getBikesToShow(Assortment_Collection $bikeCollection)
+	{
+        $bikesToShow = clone $bikeCollection->getBikes();
+
+		if (array_key_exists("spec", $_GET) === true &&
+			is_array($_GET["spec"]) === true)
+		{
+			foreach ($bikeCollection->getBikes() as $bikeId => $bike)
+			{
+				reset($_GET["spec"]);
+
+				foreach ($_GET["spec"] as $specificationId => $specification)
+				{
+					if (is_array($specification) === false)
+					{
+						continue;
+					}
+
+                    $bikeSpecs = $bike->getSpecifications();
+
+                    if ($bikeSpecs->offsetExists($specificationId) === false)
+                    {
+                        $bikesToShow->offsetUnset($bikeId);
+                        continue;
+                    }
+
+					foreach ($specification as $specOptionId)
+					{
+                        $spec = $bikeSpecs->offsetGet($specificationId);
+						if ($spec->getSpecificationOptions()->keyExists($specOptionId) === false)
+						{
+                            $bikesToShow->offsetUnset($bikeId);
+                            continue;
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			$bikesToShow = $bikeCollection->getBikes();
+		}
+
+		return $bikesToShow;
 	}
 }

@@ -9,14 +9,14 @@ begin
   
   select
     c.categorietype,
-	fr.frametype
+    fr.frametype
   into
     category,
-	uitvoering
+    uitvoering
   from
     fietsen f
     inner join categorie c on c.categorieid = f.categorieid
-	inner join frame fr on fr.frameid = f.frameid
+    inner join frame fr on fr.frameid = f.frameid
   where
     f.ID = new.ID;
 

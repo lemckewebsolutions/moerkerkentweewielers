@@ -5,19 +5,31 @@ class Assortment_Bikes_Bike
 
 	private $brand = "";
 
+	private $buildYear = -1;
+
 	private $category = null;
 
+	private $color = "";
+
 	private $description = "";
+
+	private $extras = "";
 
 	private $frameType = null;
 
 	private $frameSize = null;
+
+	private $gears = "";
 
 	private $imageName = "";
 
 	private $model = "";
 
 	private $salesPrice = -1;
+
+	private $specifications = null;
+
+	private $weight = -1;
 
 	private $wheelSize = -1;
 
@@ -54,6 +66,22 @@ class Assortment_Bikes_Bike
 	}
 
 	/**
+	 * @return int
+	 */
+	public function getBuildYear()
+	{
+		return $this->buildYear;
+	}
+
+	/**
+	 * @param int $value
+	 */
+	public function setBuildYear($value)
+	{
+		$this->buildYear = (int)$value;
+	}
+
+	/**
 	 * @return Assortment_Bikes_Category
 	 */
 	public function getCategory()
@@ -72,6 +100,22 @@ class Assortment_Bikes_Bike
 	/**
 	 * @return string
 	 */
+	public function getColor()
+	{
+		return $this->color;
+	}
+
+	/**
+	 * @param string $value
+	 */
+	public function setColor($value)
+	{
+		$this->color = (string)$value;
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getDescription()
 	{
 		return $this->description;
@@ -83,6 +127,22 @@ class Assortment_Bikes_Bike
 	public function setDescription($description)
 	{
 		$this->description = (string)$description;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getExtras()
+	{
+		return $this->extras;
+	}
+
+	/**
+	 * @param string $value
+	 */
+	public function setExtras($value)
+	{
+		$this->extras = (string)$value;
 	}
 
 	/**
@@ -115,6 +175,22 @@ class Assortment_Bikes_Bike
 	public function setFrameSize(Assortment_Bikes_FrameSize $frameSize)
 	{
 		$this->frameSize = $frameSize;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getGears()
+	{
+		return $this->gears;
+	}
+
+	/**
+	 * @param string $value
+	 */
+	public function setGears($value)
+	{
+		$this->gears = (string)$value;
 	}
 
 	/**
@@ -163,6 +239,38 @@ class Assortment_Bikes_Bike
 	public function setSalesPrice($salesPrice)
 	{
 		$this->salesPrice = (float)$salesPrice;
+	}
+
+	/**
+	 * @return Framework_Collection_Array|Assortment_Bikes_Specification[]
+	 */
+	public function getSpecifications()
+	{
+		return $this->specifications;
+	}
+
+	/**
+	 * @param Framework_Collection_Array|Assortment_Bikes_Specification[] $value
+	 */
+	public function setSpecifications(Framework_Collection_Array $value)
+	{
+		$this->specifications = $value;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getWeight()
+	{
+		return $this->weight;
+	}
+
+	/**
+	 * @param int $value
+	 */
+	public function setWeight($value)
+	{
+		$this->weight = (int)$value;
 	}
 
 	/**

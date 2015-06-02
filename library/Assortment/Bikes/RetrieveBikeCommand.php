@@ -26,6 +26,11 @@ class Assortment_Bikes_RetrieveBikeCommand extends Framework_Database_Command
 			  fm.framemaat,
 			  fm.eenheid,
 			  wm.wielmaat,
+			  f.versnellingen,
+			  f.gewicht,
+			  f.kleur,
+			  f.modeljaar,
+			  f.extra,
 			  f.verkoopprijs,
 			  f.beschrijving,
 			  f.uploadname
@@ -46,6 +51,11 @@ class Assortment_Bikes_RetrieveBikeCommand extends Framework_Database_Command
 			$bike->setBrand($record->merk);
 			$bike->setModel($record->model);
 			$bike->setWheelSize($record->wielmaat);
+			$bike->setGears($record->versnellingen);
+			$bike->setBuildYear($record->modeljaar);
+			$bike->setColor($record->kleur);
+			$bike->setWeight($record->gewicht);
+			$bike->setExtras($record->extra);
 			$bike->setDescription($record->beschrijving);
 			$bike->setSalesPrice($record->verkoopprijs);
 			$bike->setImageName($record->uploadname);

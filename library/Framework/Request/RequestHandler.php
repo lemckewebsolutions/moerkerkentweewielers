@@ -19,7 +19,7 @@ class Framework_Request_RequestHandler
 		}
 		catch (Exception $exception)
 		{
-			echo $exception->getMessage();
+			Framework_Exceptions_Handler::handleException($exception);
 		}
 
 		return $output;

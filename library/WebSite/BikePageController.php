@@ -2,6 +2,13 @@
 class WebSite_BikePageController extends WebSite_PageController
 	implements Framework_Http_IGet
 {
+	protected function assignClientCodeFiles(Framework_Views_PageView $view)
+	{
+		$view->getCssFiles()->push("bike.css");
+
+		parent::assignClientCodeFiles($view);
+	}
+
 	public function get()
 	{
 		$page = new WebSite_BikePage(

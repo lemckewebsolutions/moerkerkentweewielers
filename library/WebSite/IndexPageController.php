@@ -8,6 +8,9 @@ class WebSite_IndexPageController extends WebSite_PageController
 
 		$view->getCssFiles()->push("salesOffer.css");
 		$view->getCssFiles()->push("brandbar.css");
+		$view->getCssFiles()->push("imagegallery.css");
+
+		$view->getHeaderJsFiles()->push("jquery.flexslider-min.js");
 	}
 
 	public function get()
