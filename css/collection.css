@@ -36,16 +36,23 @@
 	margin-bottom: 10px;
 }
 
+.assortment-item-content a
+{
+	display: block;
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
 .assortment-item-content img
 {
-	left: 50%;
-	margin: 0;
-	margin-right: -50%;
+	display: block;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
 	max-height:100%;
 	max-width:100%;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	top: 50%;
+	top: 0%;
 }
 
 .assortment-item-content h3

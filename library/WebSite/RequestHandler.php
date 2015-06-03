@@ -120,9 +120,18 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 				$requestUrl,
 				$postedFields
 		);
+		
+		$matchingPattern = $this->findMatchingPattern($requestUrl->getPath());
+		
+		if ($matchingPattern === null)
+		{
+			http_response_code(404);
+			echo "Deze pagina kan helaas niet worden gevonden.";
+			exit;
+		}
 
 		$controllerName = $urlPatterns->offsetGet(
-			$this->findMatchingPattern($requestUrl->getPath())
+			$matchingPattern
 		);
 		$controller = new $controllerName($request, $this->getConfiguration());
 

@@ -67,14 +67,17 @@ class WebSite_CollectionPageController extends WebSite_PageController
                         continue;
                     }
 
-					foreach ($specification as $specOptionId)
+					/* @var Assortment_Bikes_Specification $spec */
+					$spec = $bikeSpecs->offsetGet($specificationId);
+
+					$result = array_intersect(
+						$specification,
+						$spec->getSpecificationOptions()->getKeys()->toNativeArray()
+					);
+
+					if (empty($result) === true)
 					{
-                        $spec = $bikeSpecs->offsetGet($specificationId);
-						if ($spec->getSpecificationOptions()->keyExists($specOptionId) === false)
-						{
-                            $bikesToShow->offsetUnset($bikeId);
-                            continue;
-						}
+						$bikesToShow->offsetUnset($bikeId);
 					}
 				}
 			}

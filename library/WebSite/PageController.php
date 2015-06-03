@@ -37,7 +37,12 @@ class WebSite_PageController extends Framework_Request_PageController
 		$jsFooterFiles->push("bootstrap.min.js");
 		$jsFooterFiles->push("navigation.js");
 		$jsHeaderFiles->push("jquery.js");
-		$jsHeaderFiles->push("googleAnalytics.js");
+
+		if (array_key_exists("overridehost", $_GET) === true ||
+			$_SERVER['REMOTE_ADDR'] !== "77.251.79.182") // Wouter
+		{
+			$jsHeaderFiles->push("googleAnalytics.js");
+		}
 	}
 
 	/**
