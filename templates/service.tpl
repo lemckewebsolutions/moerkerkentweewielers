@@ -16,26 +16,27 @@ echo $this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/he
 <div class="col-sm-12 col-md-9">
 	<h2>Service</h2>
 	<p>
-		Moerkerken Tweewielers biedt de volgende service:
+		Moerkerken Tweewielers biedt de volgende services:
 	</p>
 	<ul>
-		<li>Standaard 2 gratis service beurten bij aankoop van een nieuwe fiets</li>
-		<li>Onderhoud van uw fiets en het uitvoeren van alle voorkomende reparaties</li>
-		<li>Wilt u een fiets aanschaffen via fietsenplan, dan werken wij graag met u mee</li>
-		<li>Betalen met VVV-bon of de nationale fietsbon is geen enkel probleem</li>
+		<li>Standaard 1 gratis servicebeurt bij aankoop van een nieuwe fiets;</li>
+		<li>Onderhoud van uw fiets en het uitvoeren van alle voorkomende reparaties;</li>
+		<li>Medewerking bij het aanschaffen van een fiets via fietsenplan;</li>
+		<li>Betaling met een VVV-bon of de Nationale Fietsbon is geen enkel probleem.</li>
 	</ul>
 
 	<h3>Reparaties</h3>
 	<p>
 		Kleine reparaties zijn dezelfde dag klaar.
-		Is dat niet mogelijk doordat onderdelen niet voorradig zijn of de reparatie is te groot dan stellen wij, indien gewenst, een gratis leenfiets ter beschikking.
+		Is dat niet mogelijk doordat onderdelen niet voorradig zijn of de reparatie is te groot, dan stellen wij, indien gewenst, een gratis leenfiets ter beschikking.
 	</p>
 
 	<h3>Verzekering</h3>
 	<p>
 		Wij zijn aangesloten bij Unigarant Verzekeringen.
 		Door op de knop hieronder te klikken kunt u uw premie berekenen en de gewenste verzekering afsluiten.
-		Als extra service kunnen wij ook, geheel vrijblijvend, de gewenste fietsverzekering voor u regelen.
+		Als extra service kunnen wij, geheel vrijblijvend, de premie voor u berekenen.
+		Daarnaast sluiten wij graag de gewenste fietsverzekering voor u af.
 	</p>
 	<a class="btn btn-success"
 	   href="http://www.unigarant.nl/webservice/premiebereken.asp?id=17151288&product=fiets"
@@ -45,5 +46,5 @@ echo $this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/he
 		Bereken uw premie
 	</a>
 </div>
-<?
+<?php
 echo $this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/footer.inc.tpl");

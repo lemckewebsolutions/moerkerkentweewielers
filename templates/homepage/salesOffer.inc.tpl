@@ -5,12 +5,12 @@
 				<img src="http://moerkerkentweewielers.nl/images/uploads/<?=$imageUrl?>">
 			</div>
 			<div class="salesOffer-text col-xs-6 col-sm-6 col-md-12">
-<?
+<?php
 if ($formerPrice > $price)
 {
 ?>
 				<span class="price former">&euro;<?=$formerPrice?></span>
-<?
+<?php
 }
 ?>
 				<span class="price">&euro;<?=$price?></span>

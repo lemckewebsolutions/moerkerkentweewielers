@@ -1,28 +1,30 @@
 <?php
 /**
- * @var WebSite_CollectionPageView $this
- * @var Framework_Collection_Array $filters
+ * @see WebSite_Views_FilterView::parse()
+ *
+ * @var int $specificationId
+ * @var string $filterName
+ * @var Framework_Collection_Array $filterOptions
  */
 ?>
-<div class="categories hidden-xs col-sm-3 col-md-3 col-lg-3">
-	<form method="GET">
-<?
-/* @var Framework_Collection_Stack|WebSite_Views_FilterOptionView[] $filterOptions */
-foreach ($filters as $filter => $filterOptions)
+<h4><?=$filterName?></h4>
+<ul class="collapsed">
+<?php
+foreach ($filterOptions as $specOptionId => $specOption)
 {
-?>
-	<h4><?=$filter?></h4>
-	<ul class="collapsed">
-<?
-	foreach ($filterOptions as $filterOption)
+	$checked = "";
+	if (isset($_GET["spec"][$specificationId][$specOptionId]) === true)
 	{
-		echo $this->includeView($filterOption);
+		$checked = "checked";
 	}
 ?>
-	</ul>
-<?
+	<li class="filterOption col-lg-12">
+		<label title="Filter op <?=$specOption?>">
+			<input type="checkbox" name="spec[<?=$specificationId?>][<?=$specOptionId?>]" value="<?=$specOptionId?>" <?=$checked?> onChange="this.form.submit()">
+			<?=$specOption?>
+		</label>
+	</li>
+<?php
 }
 ?>
-		</ul>
-	</form>
-</div>
+</ul>

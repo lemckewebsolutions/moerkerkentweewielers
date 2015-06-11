@@ -17,19 +17,29 @@ echo $this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/he
 </div>
 <div class="col-sm-12 col-md-8">
 	<?=$this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "imagegallery.inc.tpl")?>
+	<h3>Welkom bij Moerkerken Tweewielers</h3>
+	<p>
+		Bij Moerkerken Tweewielers bent u aan het juiste adres voor nieuwe stadsfietsen, hybrides en kinderfietsen. Daarnaast treft u bij ons
+		het meest uitgebreide assortiment gebruikte kwaliteitsfietsen in de regio aan. Uiteraard kunt u ook bij ons terecht voor reparaties en onderhoud.
+	</p>
+	<p>
+		Vaktechnische kennis, service en klantgericht werken staan bij ons hoog in het vaandel.
+	</p>
+	<p>
+		Graag tot ziens in onze winkel!
+	</p>
 	<div id="aanbiedingen" class="salesOffers col-md-12">
 		<h2>Aanbiedingen</h2>
-<?
+<?php
 foreach ($salesOfferViews as $salesOfferView)
 {
 	echo $this->includeView($salesOfferView);
 }
 ?>
-		
 	</div>
 </div>
 <div class="hidden-md hidden-lg col-xs-12 col-sm-12" id="contact">
 	<?=$this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "homepage/contact.inc.tpl")?>
 </div>
-<?
+<?php
 echo $this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/footer.inc.tpl");

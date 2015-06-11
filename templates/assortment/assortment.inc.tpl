@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * @see WebSite_Views_AssortmentView::parse()
  *
@@ -6,7 +6,7 @@
  */
 ?>
 <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-<?
+<?php
 	foreach ($bikes as $bike)
 	{
 ?>
@@ -32,7 +32,7 @@
 			</span>
 		</div>
 	</div>
-<?
+<?php
 	}
 ?>
 </div>

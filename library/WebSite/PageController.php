@@ -1,7 +1,7 @@
 <?php
 class WebSite_PageController extends Framework_Request_PageController
 {
-	const TEMPLATE_PATH = "templates_new/";
+	const TEMPLATE_PATH = "templates/";
 
 	/**
 	 * The configuration array.
@@ -39,7 +39,8 @@ class WebSite_PageController extends Framework_Request_PageController
 		$jsHeaderFiles->push("jquery.js");
 
 		if (array_key_exists("overridehost", $_GET) === true ||
-			$_SERVER['REMOTE_ADDR'] !== "77.251.79.182") // Wouter
+			($_SERVER['REMOTE_ADDR'] !== "77.251.79.182" &&  // Wouter
+			$_SERVER['REMOTE_ADDR'] !== "77.61.70.249")) // Hennie
 		{
 			$jsHeaderFiles->push("googleAnalytics.js");
 		}

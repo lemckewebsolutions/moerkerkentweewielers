@@ -6,12 +6,12 @@
 		Lemcke Websolutions&copy; <?=date("Y")?>
 	</span>
 </div>
-<?
+<?php
 foreach ($footerJsFiles as $footerJsFile)
 {
 ?>
-		<script src="js/<?=$footerJsFile?>"></script>
-<?
+		<script src="http://moerkerkentweewielers.nl/js/<?=$footerJsFile?>"></script>
+<?php
 }
 ?>
 	</body>
